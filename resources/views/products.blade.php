@@ -104,7 +104,6 @@
             </table>
         </div>
 
-        <!-- Discount Modal -->
         <div v-if="showDiscountModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div class="bg-white p-6 rounded-lg shadow-xl w-full sm:max-w-sm transform transition-all duration-300 scale-95 opacity-0 animate-popup">
                 <h3 class="text-xl font-semibold text-gray-800 mb-4">Discount Alert</h3>
