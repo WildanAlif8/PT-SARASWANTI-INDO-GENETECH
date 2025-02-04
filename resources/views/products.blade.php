@@ -3,15 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Listing</title>
+    <title>PT Saraswanti Indo Genetech</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        @keyframes popup {
+            0% {
+                transform: scale(0.95);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .animate-popup {
+            animation: popup 0.3s ease-out forwards;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
     <div id="app" class="container mx-auto px-4 py-8">
+        <div class="text-center mb-8">
+            <img src="https://cdnb.uns.ac.id/cdc/image/2022/10/cdhdoL-oUvDNOzrr2NvwjerXCyOHjY7I.jpg" alt="PT Saraswanti Indo Genetech" class="mx-auto h-16">
+        </div>
         <div class="mb-8 bg-white p-4 rounded-lg shadow">
-            <h2 class="text-xl font-bold mb-4">Filters</h2>
+            <h2 class="text-xl font-bold mb-4">PT Saraswanti Indo Genetech</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div>
                     <label class="block mb-2">Type</label>
@@ -85,11 +104,12 @@
             </table>
         </div>
 
-        <div v-if="showDiscountModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <div class="bg-white p-6 rounded-lg shadow-lg">
-                <h3 class="text-lg font-bold mb-4">Discount Alert</h3>
-                <p>@{{ discountMessage }}</p>
-                <button @click="showDiscountModal = false" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded">
+        <!-- Discount Modal -->
+        <div v-if="showDiscountModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div class="bg-white p-6 rounded-lg shadow-xl w-full sm:max-w-sm transform transition-all duration-300 scale-95 opacity-0 animate-popup">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Discount Alert</h3>
+                <p class="text-gray-600 mb-4">@{{ discountMessage }}</p>
+                <button @click="showDiscountModal = false" class="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200">
                     Close
                 </button>
             </div>
